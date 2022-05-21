@@ -1,6 +1,7 @@
 public class Main {
 
     public static void main(String[] args) {
+
         PartyFactory partyFactory = new PartyFactory();
         Party party = partyFactory.createRandomParty(20);
         System.out.println(party.getCharacters());

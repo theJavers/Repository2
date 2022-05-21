@@ -1,4 +1,4 @@
-public class Wizard extends Character {
+public class Wizard extends Character implements Attacker {
     private int mana;
     private int intelligence;
 
@@ -6,13 +6,12 @@ public class Wizard extends Character {
     public Wizard(String name) {
         super(name);
     }
-
+    //Miki: ¿este constructor está sobrecargado por algún motivo o se puede elimintar el primero?
     public Wizard(String name, int mana, int intelligence) {
         super(name);
         setMana(mana);
         setIntelligence(intelligence);
     }
-
 
 
     // getters and setters
@@ -32,5 +31,21 @@ public class Wizard extends Character {
         this.intelligence = intelligence;
     }
 
+    //IMPLEMENTS INTERFACE
 
+    @Override
+    public void attack() {
+        if (this.mana >= 5){
+
+            //rival.setHp(hp - this.intelligence)
+            setMana(mana - 5);
+            System.out.println("Fire Ball!!");
+
+        }else{
+
+            //rival.setHp(hp - 2)
+            setMana(mana + 1);
+            System.out.println("Staff hit!");
+        }
+    }
 }

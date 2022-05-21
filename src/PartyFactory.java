@@ -19,7 +19,7 @@ public class PartyFactory {
         String name = names.get(randomIndex);
         if(usedNames.contains(name)) {
             name = name + " Jr";
-        }
+        } //Miki: Queda pendiente el else para cuando ya no queden más nombres".
         usedNames.add(name);
         return name;
     }
@@ -39,6 +39,6 @@ public class PartyFactory {
         for (int i = 0; i < n + 1; i++) {
             randomCharacters.add(getRandomCharacter());
         }
-        return new Party(randomCharacters);
+        return new Party(randomCharacters, randomCharacters);
     }
 }

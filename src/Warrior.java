@@ -1,4 +1,4 @@
-public class Warrior extends Character {
+public class Warrior extends Character implements Attacker {
     private int stamina;
     private int strength;
 
@@ -6,7 +6,7 @@ public class Warrior extends Character {
    public Warrior(String name) {
        super(name);
    }
-
+    //Miki: ¿este constructor está sobrecargado por algún motivo o se puede elimintar el primero?
     public Warrior(String name, int stamina, int strength) {
         super(name);
         setStamina(stamina);
@@ -30,4 +30,23 @@ public class Warrior extends Character {
     public void setStrength(int strength) {
         this.strength = strength;
     }
+
+    //IMPLEMENTS INTERFACE
+
+
+    public void attack() {
+        if (this.stamina >= 5){
+
+            //rival.setHp(hp - this.stamina)
+            setStamina(stamina - 5);
+            System.out.println("Fire Ball!!");
+
+        }else{
+
+            //rival.setHp(hp - 2)
+            setStamina(stamina + 1);
+            System.out.println("Staff hit!");
+        }
+    }
+
 }

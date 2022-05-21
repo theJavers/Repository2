@@ -1,6 +1,5 @@
 public abstract class Character {
     private static int counter = 0;
-
     private final int id;
     private String name;
     private int hp;
@@ -8,9 +7,9 @@ public abstract class Character {
 
     public Character(String name) {
         this.counter++;
-        this.id = this.counter; // para generar el id y que no se pueda cambiar
+        this.id = this.counter; // para generar el id y que no se pueda cambiar.
         setName(name);
-        setHp();
+        this.hp = this.hp; //Miki: aquí debemos pensar si le pasamos el parámetro de ph desde fuera o lo seteamos aquí mismo en un valor siempre igual.
         isAlive = true;
     }
     //////////////////SETTER////////////
