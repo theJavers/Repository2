@@ -1,33 +1,30 @@
-abstract class Character {
-    private int id;
+public abstract class Character {
+    private static int counter = 0;
+
+    private final int id;
     private String name;
     private int hp;
     private boolean isAlive;
 
     public Character(String name) {
-        setId();
+        this.counter++;
+        this.id = this.counter; // para generar el id y que no se pueda cambiar
         setName(name);
         setHp();
         isAlive = true;
     }
-    //////////////////SETTER/////////////
-    public void setId(){
-        int counter = 1;
-        this.id = counter++;
-    };
+    //////////////////SETTER////////////
 
     public void setName(String name) {
         this.name = name;
     }
 
-    public void setHp(){}
+    public void setHp(int hp ){ this.hp = hp; }
 
     public void setIsAlive(){
-
         if(getHp() <= 0 ){
             isAlive = false;
         }
-
     }
 
     //////////////////////////GETTER////////////

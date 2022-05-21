@@ -1,9 +1,15 @@
 public class Main {
 
     public static void main(String[] args) {
-        System.out.println("Hola");
-        System.out.println("First push Carwi");
-        System.out.println("Hey");
+        PartyFactory partyFactory = new PartyFactory();
+        Party party = partyFactory.createRandomParty(20);
+        System.out.println(party.getCharacters());
+
+        for(Character c: party.getCharacters()) {
+            System.out.println(c.getName());
+        }
     }
+
+
 
 }
