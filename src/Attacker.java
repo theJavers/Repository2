@@ -2,6 +2,6 @@
 
 public interface Attacker {
 
-    void attack();
+    void attack(Character rival);
 
 }

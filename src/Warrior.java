@@ -31,19 +31,21 @@ public class Warrior extends Character implements Attacker {
         this.strength = strength;
     }
 
+
+
     //IMPLEMENTS INTERFACE
 
 
-    public void attack() {
+    public void attack(Character rival) {
         if (this.stamina >= 5){
 
-            //rival.setHp(hp - this.stamina)
+            rival.receiveDamage(this.strength);
             setStamina(stamina - 5);
             System.out.println("Fire Ball!!");
 
         }else{
 
-            //rival.setHp(hp - 2)
+            rival.receiveDamage(2);
             setStamina(stamina + 1);
             System.out.println("Staff hit!");
         }

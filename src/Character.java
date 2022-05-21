@@ -42,4 +42,10 @@ public abstract class Character {
     public boolean getIsAlive(){
         return this.isAlive;
     }
+
+    public void receiveDamage(int damage) {
+       this.hp = this.hp - damage;
+    }
+
 }
+

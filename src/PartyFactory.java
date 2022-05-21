@@ -12,6 +12,7 @@ public class PartyFactory {
         names.add("Alejandro");
         names.add("Carwi");
         names.add("Marina");
+        names.add("Eneko");
     }
 
     private String getRandomName() {

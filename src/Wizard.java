@@ -31,19 +31,21 @@ public class Wizard extends Character implements Attacker {
         this.intelligence = intelligence;
     }
 
+
+
     //IMPLEMENTS INTERFACE
 
-    @Override
-    public void attack() {
+
+    public void attack(Character rival) {
         if (this.mana >= 5){
 
-            //rival.setHp(hp - this.intelligence)
+            rival.receiveDamage(this.intelligence);
             setMana(mana - 5);
             System.out.println("Fire Ball!!");
 
         }else{
 
-            //rival.setHp(hp - 2)
+            rival.receiveDamage(2);
             setMana(mana + 1);
             System.out.println("Staff hit!");
         }
