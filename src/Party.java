@@ -18,10 +18,13 @@ public class Party {
         return this.characters;
     }
     public void addCharacter(Character character) {
+
         characters.add(character);
     }
 
     public void removeCharacter(Character character) {
+
+        characters.remove(character);
 
     }
 
