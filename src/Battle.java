@@ -19,10 +19,6 @@ public class Battle {
         System.out.println("-------------------------- ");
         System.out.println("Party 1 was created: ");
         System.out.println("-------------------------- ");
-        for (Character c : party1.getCharacters()) {
-            stats(c);
-        }
-        System.out.println("-------------------------- ");
     }
 
     public void setParty2(Party party2) {
@@ -30,15 +26,11 @@ public class Battle {
         System.out.println("-------------------------- ");
         System.out.println("Party 2 was created: ");
         System.out.println("-------------------------- ");
-        for (Character c : party2.getCharacters()) {
-            stats(c);
-        }
-        System.out.println("-------------------------- ");
     }
 
     public Character chooseCharacter(Party party) {
 
-        System.out.println("Choose a character: ");
+        System.out.println("\nChoose a character :");
         String chosenCharacter = input.nextLine();
 
         Character fighter = null;
@@ -103,20 +95,25 @@ public class Battle {
             stats(fighter1);
             stats(fighter2);
         } else {
-            if (!fighter1.getIsAlive()) {
+            if (fighter1.getHp() <= 0) {
                 fighter1.setHp(0);
                 stats(fighter1);
                 stats(fighter2);
                 System.out.printf("\n -------------------- KO!! \n"
                         + fighter2.getName() + " WON THE BATTLE!!! :D \n"
                         + fighter1.getName() + " died and went to the Graveyard  :( ");
-            } else {
+
+                party1.removeCharacter(fighter1);
+
+            } else if (fighter2.getHp() <= 0){
                 fighter2.setHp(0);
                 stats(fighter1);
                 stats(fighter2);
-                System.out.printf("\n !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! \n :D --> "
+                System.out.printf("\n !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! \n :D  "
                         + fighter1.getName() + "  WON THE BATTLE!!!  \n"
-                        + " :( --> " + fighter2.getName() + " died and went to the Graveyard ");
+                        + " :(  " + fighter2.getName() + " died and went to the Graveyard ");
+
+                party2.removeCharacter(fighter2);
             }
 
         }
@@ -124,26 +121,50 @@ public class Battle {
 
     public void duel() {
 
-        Character fighter1 = chooseCharacter(party1);
-        Character fighter2 = chooseCharacter(party2);
+        while (party1.characters.size() > 0 && party2.characters.size() > 0) {
 
-        System.out.println("Press Enter to Start the Fight!: ");
-        input.nextLine();
+            System.out.println("-------------------------- ");
+            System.out.println("\nParty 1: ");
+            for (Character c : party1.getCharacters()) {
+                stats(c);
+            }
+            System.out.println("-------------------------- ");
 
-        System.out.println(" FIGHT!!!!");
+            System.out.println("\nParty 2: ");
+            for (Character c : party2.getCharacters()) {
+                stats(c);
+            }
+            System.out.println("-------------------------- ");
 
-        int round = 0;
 
-        while (fighter1.getHp() > 0 && fighter2.getHp() > 0) {
-               round ++;
-            System.out.printf("\n round: " + round + "\n");
-               round(fighter1, fighter2);
+            Character fighter1 = chooseCharacter(party1);
+            Character fighter2 = chooseCharacter(party2);
+
+            System.out.println("Press Enter to Start the Fight!: ");
+            input.nextLine();
+
+            System.out.println(" FIGHT!!!!");
+
+            int round = 0;
+
+            while (fighter1.getHp() > 0 && fighter2.getHp() > 0) {
+                round++;
+                System.out.printf("\n round: " + round + "\n");
+                round(fighter1, fighter2);
             }
 
+            endGame();
 
-
-
+        }
     }
 
+    public void endGame(){
+        if (party1.characters.size() == 0){
+            System.out.println("\nEND-------\n Party 2 Won the battle, party 1 lose");
+
+        } else if (party2.characters.size() == 0){
+            System.out.println("\nEND------- \n Party 1 Won the battle, party 2 lose");
+        }
+    }
 
 }
