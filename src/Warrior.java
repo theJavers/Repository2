@@ -1,14 +1,9 @@
-public class Warrior extends Character {
+public class Warrior extends Character implements Attacker {
     private int stamina;
     private int strength;
 
-    //constructor
-   public Warrior(String name) {
-       super(name);
-   }
-
-    public Warrior(String name, int stamina, int strength) {
-        super(name);
+    public Warrior(String name, int hp, int stamina, int strength) {
+        super(name, hp);
         setStamina(stamina);
         setStrength(strength);
     }
@@ -29,5 +24,20 @@ public class Warrior extends Character {
 
     public void setStrength(int strength) {
         this.strength = strength;
+    }
+
+    public void attack(Character rival) {
+        if (this.stamina >= 5){
+
+            rival.receiveDamage(this.strength);
+            setStamina(stamina - 5);
+            System.out.println("Heavy attack!!");
+
+        }else{
+
+            rival.receiveDamage(2);
+            setStamina(stamina + 1);
+            System.out.println("Weak attack!");
+        }
     }
 }

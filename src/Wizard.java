@@ -1,18 +1,17 @@
-public class Wizard extends Character {
+public class Wizard extends Character implements Attacker {
     private int mana;
     private int intelligence;
 
     //constructor
-    public Wizard(String name) {
-        super(name);
+    public Wizard(String name, int hp) {
+        super(name, hp);
     }
 
-    public Wizard(String name, int mana, int intelligence) {
-        super(name);
+    public Wizard(String name, int hp, int mana, int intelligence) {
+        super(name, hp);
         setMana(mana);
         setIntelligence(intelligence);
     }
-
 
 
     // getters and setters
@@ -31,6 +30,19 @@ public class Wizard extends Character {
     public void setIntelligence(int intelligence) {
         this.intelligence = intelligence;
     }
+    public void attack(Character rival) {
+        if (this.mana >= 5){
 
+            rival.receiveDamage(this.intelligence);
+            setMana(mana - 5);
+            System.out.println("Fire Ball!!");
+
+        }else{
+
+            rival.receiveDamage(2);
+            setMana(mana + 1);
+            System.out.println("Staff hit!");
+        }
+    }
 
 }
