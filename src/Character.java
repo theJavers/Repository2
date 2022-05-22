@@ -18,7 +18,9 @@ public abstract class Character {
         this.name = name;
     }
 
-    public void setHp(int hp ){ this.hp = hp; }
+    public void setHp(int hp ){
+        this.hp = hp;
+    }
 
     public void setIsAlive(){
         if(getHp() <= 0 ){
@@ -44,7 +46,9 @@ public abstract class Character {
     }
 
     public void receiveDamage(int damage) {
-       this.hp = this.hp - damage;
+
+        this.hp = this.hp - damage;
+
     }
 
 }

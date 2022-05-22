@@ -3,27 +3,23 @@ import java.util.ArrayList;
 
 public class Party {
 
-    public List<Character> party1 = new ArrayList<Character>();
-    public List<Character> party2 = new ArrayList<Character>();
+    public List<Character> characters = new ArrayList<Character>();
 
-    public Party(List<Character> party1, List<Character> party2) {
-        setParty1(party1);
-        setParty2(party2);
+    public Party() {}
+
+    public Party(List<Character> characters) {
+        this.characters = characters;
     }
 
-    public List<Character> getParty1() {
-        return party1;
+    public List<Character> getCharacters() {
+        return this.characters;
+    }
+    public void addCharacter(Character character) {
+        characters.add(character);
     }
 
-    public void setParty1(List<Character> party1) {
-        this.party1 = party1;
+    public void removeCharacter(Character character) {
+
     }
 
-    public List<Character> getParty2() {
-        return party2;
-    }
-
-    public void setParty2(List<Character> party2) {
-        this.party2 = party2;
-    }
 }
