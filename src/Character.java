@@ -1,4 +1,4 @@
-public abstract class Character {
+public abstract class Character implements Attacker {
     private static int counter = 0;
 
     private final int id;
@@ -6,11 +6,11 @@ public abstract class Character {
     private int hp;
     private boolean isAlive;
 
-    public Character(String name) {
-        this.counter++;
-        this.id = this.counter; // para generar el id y que no se pueda cambiar
+    public Character(String name, int hp) {
+        counter++;
+        this.id = counter; // para generar el id y que no se pueda cambiar
         setName(name);
-        setHp();
+        setHp(hp);
         isAlive = true;
     }
     //////////////////SETTER////////////
@@ -42,5 +42,11 @@ public abstract class Character {
 
     public boolean getIsAlive(){
         return this.isAlive;
+    }
+
+    public void receiveDamage(int damage) {
+
+        this.hp = this.hp - damage;
+
     }
 }

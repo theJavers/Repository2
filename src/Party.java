@@ -5,9 +5,12 @@ public class Party {
 
     public List<Character> characters = new ArrayList<Character>();
 
-    public Party() {}
+    public Party() {
+
+    }
 
     public Party(List<Character> characters) {
+
         this.characters = characters;
     }
 
