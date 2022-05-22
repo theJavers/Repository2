@@ -3,12 +3,12 @@ public class Wizard extends Character implements Attacker {
     private int intelligence;
 
     //constructor
-    public Wizard(String name) {
-        super(name);
+    public Wizard(String name, int hp) {
+        super(name, hp);
     }
-    //Miki: ¿este constructor está sobrecargado por algún motivo o se puede elimintar el primero?
-    public Wizard(String name, int mana, int intelligence) {
-        super(name);
+
+    public Wizard(String name, int hp, int mana, int intelligence) {
+        super(name, hp);
         setMana(mana);
         setIntelligence(intelligence);
     }
@@ -31,23 +31,25 @@ public class Wizard extends Character implements Attacker {
         this.intelligence = intelligence;
     }
 
-
-
-    //IMPLEMENTS INTERFACE
-
-
-    public void attack(Character rival) {
+    public String attack(Character rival, Character character) {
+        String attackType;
         if (this.mana >= 5){
 
-            rival.receiveDamage(this.intelligence);
+            rival.receiveDamage(this.intelligence, character, rival);
             setMana(mana - 5);
-            System.out.println("Fire Ball!!");
+            attackType = "Fire Ball";
+            //System.out.println(getName() + " does FIREBALL (" + this.intelligence + ").\n" + rival.getName() + " HP: " + rival.getHp() + " points. \n" +
+               //     "---------");
 
         }else{
 
-            rival.receiveDamage(2);
+            rival.receiveDamage(2, character, rival);
             setMana(mana + 1);
-            System.out.println("Staff hit!");
+            attackType = "Staff Hit";
+            //System.out.println(getName() + " does STAFF HIT (" + 2 + ").\n" + rival.getName() + " HP: " + rival.getHp() + " points. \n" +
+             //      "----------");
         }
+        return attackType;
     }
+
 }

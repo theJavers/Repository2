@@ -1,19 +1,17 @@
 public class Main {
 
     public static void main(String[] args) {
-
         PartyFactory partyFactory = new PartyFactory();
-        Party party = partyFactory.createRandomParty(20);
-        System.out.println(party.getCharacters());
+        Party party1 = partyFactory.createRandomParty(1);
+        Party party2 = partyFactory.createRandomParty(1);
 
 
-        for(Character c: party.getCharacters()) {
-            System.out.println(c.getName());
-        }
-
+        Battle prueba = new Battle(party1, party2);
+        //Character fighter1 = prueba.chooseCharacter(party1);
+        //Character fighter2 = prueba.chooseCharacter(party2);
+        prueba.duel();
     }
 
 
 
 }
-

@@ -12,6 +12,7 @@ public class PartyFactory {
         names.add("Alejandro");
         names.add("Carwi");
         names.add("Marina");
+        names.add("Eneko");
     }
 
     private String getRandomName() {
@@ -27,10 +28,11 @@ public class PartyFactory {
     private Character getRandomCharacter() {
         String name = getRandomName();
         if (Math.random() > 0.5) {
-            // new wizardFactory().getWizard(name)
-            return new Wizard(name);
+            Wizard wizard = new WizardFactory().getWizard(name);
+            return wizard;
         }
-        return new Warrior(name);
+        Warrior warrior = new WarriorFactory().getWarrior(name);
+        return warrior;
 
     }
 
