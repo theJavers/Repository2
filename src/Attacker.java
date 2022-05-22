@@ -1,4 +1,4 @@
 public interface Attacker {
 
-    void attack(Character rival, Character character);
+    String attack(Character rival, Character character);
 }

@@ -20,13 +20,13 @@ public abstract class Character implements Attacker {
     }
 
     public void setHp(int hp) {
+
         this.hp = hp;
     }
 
-    public void setIsAlive(Character character, Character rival) {
+    public void setIsAlive(Character character) {
         isAlive = false;
-        System.out.println(character.getName() + " went to the graveyard");
-        System.out.println(rival.getName() + " won the fight!");
+
     }
 
     //////////////////////////GETTER////////////
@@ -39,18 +39,20 @@ public abstract class Character implements Attacker {
     }
 
     public int getHp() {
+
         return this.hp;
     }
 
     public boolean getIsAlive() {
+
         return this.isAlive;
     }
 
     public void receiveDamage(int damage, Character character, Character rival) {
-        if (hp > 0) {
+        if (this.hp > 0) {
             this.hp = this.hp - damage;
         } else {
-            setIsAlive(character, rival);
+            setIsAlive(character);
         }
 
 

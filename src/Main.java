@@ -2,8 +2,8 @@ public class Main {
 
     public static void main(String[] args) {
         PartyFactory partyFactory = new PartyFactory();
-        Party party1 = partyFactory.createRandomParty(5);
-        Party party2 = partyFactory.createRandomParty(5);
+        Party party1 = partyFactory.createRandomParty(1);
+        Party party2 = partyFactory.createRandomParty(1);
 
 
         Battle prueba = new Battle(party1, party2);
