@@ -62,7 +62,8 @@ public class Battle {
             System.out.println(" ========== \nWarrior " + name + ": \n" + "HP: " +
                     hp + "\n" + "Stamina: "
                     + stamina + "\n" + "Strength: " +
-                    strength + "\n ============== \n"); ;
+                    strength + "\n ============== \n");
+            ;
         } else {
             Wizard wizard = (Wizard) character;
             int mana = wizard.getMana();
@@ -75,19 +76,32 @@ public class Battle {
 
 
     }
+    /*public void bothAttacks() {
+        Character fighter1 = chooseCharacter(party1);
+        Character fighter2 = chooseCharacter(party2);
 
 
+    }*/
 
     public void duel() {
         Character fighter1 = chooseCharacter(party1);
         Character fighter2 = chooseCharacter(party2);
 
-        System.out.println(fighter2.getName() + " hP: " + fighter2.getHp());
-        fighter1.attack(fighter2);
-        stats(fighter1);
-        System.out.println(fighter1.getName() + " attacked " + fighter2.getName());
-        System.out.println(fighter2.getName() + " hP: " + fighter2.getHp());
+        while (fighter1.getIsAlive() && fighter2.getIsAlive()) {
+                fighter1.attack(fighter2, fighter1);
+                fighter2.attack(fighter1, fighter2);
+
+            }
+
+        if (fighter1.getIsAlive()) {
+            System.out.println(fighter1.getName() + " won the fight!");
+        } else {
+            System.out.println(fighter2.getName() + " won the fight!");
+        }
+
+
 
     }
+
 
 }

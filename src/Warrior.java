@@ -26,18 +26,20 @@ public class Warrior extends Character implements Attacker {
         this.strength = strength;
     }
 
-    public void attack(Character rival) {
+    public void attack(Character rival, Character character) {
         if (this.stamina >= 5){
 
-            rival.receiveDamage(this.strength);
+            rival.receiveDamage(this.strength, character, rival);
             setStamina(stamina - 5);
-            System.out.println("Heavy attack!!");
+            System.out.println(getName() + " does HEAVY ATTACK(" + this.strength + ").\n" + rival.getName() + " HP: " + rival.getHp() + " points. \n" +
+                    "-----------");
 
         }else{
 
-            rival.receiveDamage(2);
+            rival.receiveDamage(2, character, rival);
             setStamina(stamina + 1);
-            System.out.println("Weak attack!");
+            System.out.println(getName() + " does WEAK ATTACK(" + 2 + ").\n" + rival.getName() + " HP: " + rival.getHp() + " points. \n " +
+                    "------------");
         }
     }
 }

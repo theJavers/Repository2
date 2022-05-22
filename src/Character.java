@@ -19,34 +19,40 @@ public abstract class Character implements Attacker {
         this.name = name;
     }
 
-    public void setHp(int hp ){ this.hp = hp; }
+    public void setHp(int hp) {
+        this.hp = hp;
+    }
 
-    public void setIsAlive(){
-        if(getHp() <= 0 ){
-            isAlive = false;
-        }
+    public void setIsAlive(Character character, Character rival) {
+        isAlive = false;
+        System.out.println(character.getName() + " went to the graveyard");
+        System.out.println(rival.getName() + " won the fight!");
     }
 
     //////////////////////////GETTER////////////
-    public int getId(){
+    public int getId() {
         return this.id;
     }
 
-    public String getName(){
+    public String getName() {
         return this.name;
     }
 
-    public int getHp(){
+    public int getHp() {
         return this.hp;
     }
 
-    public boolean getIsAlive(){
+    public boolean getIsAlive() {
         return this.isAlive;
     }
 
-    public void receiveDamage(int damage) {
+    public void receiveDamage(int damage, Character character, Character rival) {
+        if (hp > 0) {
+            this.hp = this.hp - damage;
+        } else {
+            setIsAlive(character, rival);
+        }
 
-        this.hp = this.hp - damage;
 
     }
 }
