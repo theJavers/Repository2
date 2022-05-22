@@ -8,7 +8,7 @@ public class Main {
 
 
         for(Character c: party.getCharacters()) {
-            System.out.println("party1: " + c.getName());
+            System.out.println(c.getName());
         }
 
     }
