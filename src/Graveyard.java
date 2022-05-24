@@ -1,11 +1,11 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class Graveyard {
+public class GraveYard {
 
     private List<Character> deads = new ArrayList<>();
 
-    public Graveyard(List<Character> deads) {
+    public GraveYard(List<Character> deads) {
         this.deads = deads;
     }
 
