@@ -7,7 +7,7 @@ public class Battle {
     private Party party1 = new PartyFactory().createRandomParty(5);
     private Party party2 = new PartyFactory().createRandomParty(5);
 
-    private Graveyard graveyard = new Graveyard();
+    private GraveYard graveyard = new GraveYard();
 
 
     public Battle(Party party1, Party party2) {
