@@ -13,7 +13,7 @@ public class Graveyard {
 
     public void addDead(Character dead) {
         deads.add(dead);
-        System.out.println("One character went to the Grave Yard");
+        System.out.println("One character went to the Grave Yard.");
     }
 
     public List<Character> getDeads() {
