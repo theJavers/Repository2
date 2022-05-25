@@ -38,7 +38,7 @@ public class PartyFactory {
 
     public Party createRandomParty(int n) {
         List<Character> randomCharacters = new ArrayList<Character>();
-        for (int i = 0; i < n + 1; i++) {
+        for (int i = 0; i < n; i++) {
             randomCharacters.add(getRandomCharacter());
         }
         return new Party(randomCharacters);
