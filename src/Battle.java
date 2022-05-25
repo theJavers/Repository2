@@ -8,6 +8,8 @@ public class Battle {
     private Party party1 = new PartyFactory().createRandomParty(5);
     private Party party2 = new PartyFactory().createRandomParty(5);
 
+    private Graveyard graveyard = new Graveyard();
+
 
     public Battle(Party party1, Party party2) {
         setParty1(party1);
@@ -104,6 +106,11 @@ public class Battle {
                         + fighter1.getName() + " died and went to the Graveyard  :( ");
 
                 party1.removeCharacter(fighter1);
+                graveyard.addDead(fighter1);
+                graveyard.printGraveyard();
+
+
+
 
             } else if (fighter2.getHp() <= 0){
                 fighter2.setHp(0);
@@ -114,6 +121,8 @@ public class Battle {
                         + " :(  " + fighter2.getName() + " died and went to the Graveyard ");
 
                 party2.removeCharacter(fighter2);
+                graveyard.addDead(fighter2);
+                graveyard.printGraveyard();
             }
 
         }
