@@ -12,7 +12,8 @@ To play this game you have to:
 ## Game Instructions
 
 When game starts you have to choose between two options:
-1. Play with a `random party` or choose from a `CSV file.` NOTE: when creating a party from a CSV file take in to consideration that the file explorer does not come on top of other windows, make sure to minimize your text editor. 
+1. Play with a `random party` or choose from a `CSV file.` 
+NOTE: when creating a party from a CSV file take in to consideration that the file explorer does not come on top of other windows, make sure to minimize your text editor. 2 default CSV are provided (party1.csv, party2.csv 
 2. Once your party is picked both teams are created and you have to choose a `fighter` to battle against another player. Players will be generated with random stats and they will be either `Warriors` or `Wizards`.
 3. After pressing `enter` the battle will start.
 4. After the battle is finished, one character of either side will be the `winner`.
