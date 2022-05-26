@@ -186,28 +186,5 @@ public class Main {
 
     }
 
-
-
-    public void partyRandom(){
-
-        System.out.println("How many fighters in each party? (max 10)");
-        Scanner kb = new Scanner(System.in);
-        int fighters = -1;
-        while(fighters < 1 || fighters > 10)
-            try{
-                fighters = Integer.parseInt(kb.nextLine());
-            }
-            catch (NumberFormatException e){
-                System.out.println("Parties must be smaller than 10");
-            }
-
-
-        PartyFactory partyFactory = new PartyFactory();
-        Party party1 = partyFactory.createRandomParty(fighters);
-        Party party2 = partyFactory.createRandomParty(fighters);
-        Battle battle = new Battle(party1, party2);
-        battle.duel();
-    }
-
 }
 

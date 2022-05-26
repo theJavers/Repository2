@@ -23,6 +23,12 @@ public class GraveYard {
 
     public void printGraveyard(){
         System.out.println("GRAVEYARD: ");
+        System.out.println(" __");
+        System.out.println("/_/\\/\\");
+        System.out.println("\\_\\  /");
+        System.out.println("/_/  \\");
+        System.out.println("\\_\\/\\ \\");
+        System.out.println("   \\_\\/");
         for(Character c : deads){
             System.out.println(c);
         }
