@@ -17,16 +17,16 @@ public class Battle {
 
     public void setParty1(Party party1) {
         this.party1 = party1;
-        System.out.println("-------------------------- ");
+        System.out.println("=={==========-");
         System.out.println("Party 1 was created: ");
-        System.out.println("-------------------------- ");
+        System.out.println("=={==========-");
     }
 
     public void setParty2(Party party2) {
         this.party2 = party2;
-        System.out.println("-------------------------- ");
+        System.out.println("=={==========-");
         System.out.println("Party 2 was created: ");
-        System.out.println("-------------------------- ");
+        System.out.println("=={==========-");
     }
 
     public Character chooseCharacter(Party party) {
