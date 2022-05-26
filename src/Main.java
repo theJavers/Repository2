@@ -1,8 +1,15 @@
 import javax.swing.*;
+import java.io.FileNotFoundException;
 import java.util.Scanner;
 import java.io.IOException;
 
 public class Main {
+
+    String p1;
+    String path1;
+    String p2;
+    String path2;
+
 
     public static void main(String[] args) throws IOException {
 
@@ -68,10 +75,38 @@ public class Main {
                 System.out.println("Thanks for playing :)");
                 break;
             case 1:
-                partyRandom();
+                p1 = "random";
+                System.out.println("How do you want to create party 2? \n");
+                printMenu();
+                int choice2random = getInput();
+                performAction2(choice2random);
                 break;
             case 2:
-                partyCSV();
+                p1 = "CSV";
+                path1 = fileChooser();
+                System.out.println("How do you want to create party 2? \n");
+                printMenu();
+                int choice2csv = getInput();
+                performAction2(choice2csv);
+                break;
+            default:
+                System.out.println("An error has occoured.");
+        }
+    }
+
+    private void performAction2(int choice) throws IOException {
+        switch (choice){
+            case 0:
+                System.out.println("Thanks for playing :)");
+                break;
+            case 1:
+                p2 = "random";
+                startDuel();
+                break;
+            case 2:
+                p2 = "CSV";
+                path2 = fileChooser();
+                startDuel();
                 break;
             default:
                 System.out.println("An error has occoured.");
@@ -94,17 +129,64 @@ public class Main {
     }
 
 
-    ////// Se crean las parties y empieza la batalla
-    public void partyCSV() throws IOException {
+    public void startDuel() throws FileNotFoundException {
 
-        String path = fileChooser();
+        Party party1 = null;
+        Party party2 = null;
+        while(party1 == null && party2 == null){
+            if(p1 == "random"){
+                System.out.println("How many fighters in party 1? (max 10)");
+                Scanner kb = new Scanner(System.in);
+                int fighters = -1;
+                while(fighters < 1 || fighters > 10)
+                    try{
+                        fighters = Integer.parseInt(kb.nextLine());
+                    }
+                    catch (NumberFormatException e){
+                        System.out.println("Parties must be smaller than 10");
+                    }
 
-        PartyFactoryCSV partyFactoryCSV = new PartyFactoryCSV(path);
-        Party party1 = partyFactoryCSV.createRandomParty1();
-        Party party2 = partyFactoryCSV.createRandomParty2();
+                PartyFactory partyFactory = new PartyFactory();
+                party1 = partyFactory.createRandomParty(fighters);
+
+
+            }
+
+            if(p2 == "random"){
+                System.out.println("How many fighters in party 2? (max 10)");
+                Scanner kb = new Scanner(System.in);
+                int fighters = -1;
+                while(fighters < 1 || fighters > 10)
+                    try{
+                        fighters = Integer.parseInt(kb.nextLine());
+                    }
+                    catch (NumberFormatException e){
+                        System.out.println("Parties must be smaller than 10");
+                    }
+
+                PartyFactory partyFactory = new PartyFactory();
+                party2 = partyFactory.createRandomParty(fighters);
+
+            }
+            if(p1 == "CSV"){
+                PartyFactoryCSV partyFactoryCSV2 = new PartyFactoryCSV(path1);
+                party1 = partyFactoryCSV2.createRandomParty2();
+            }
+            if(p2 == "CSV"){
+                PartyFactoryCSV partyFactoryCSV2 = new PartyFactoryCSV(path2);
+                party2 = partyFactoryCSV2.createRandomParty2();
+            }
+        }
+
+
+
         Battle battle = new Battle(party1, party2);
         battle.duel();
+
+
     }
+
+
 
     public void partyRandom(){
 
@@ -126,11 +208,6 @@ public class Main {
         Battle battle = new Battle(party1, party2);
         battle.duel();
     }
-
-
-
-
-
 
 }
 
