@@ -9,8 +9,8 @@ public class PartyFactoryCSV {
     public List<String> names1 = new ArrayList<>();
     // private List<String> usedNames = new ArrayList<>();
 
-    public PartyFactoryCSV() throws FileNotFoundException {
-        File file = new File("Prueba.csv");
+    public PartyFactoryCSV(String path) throws FileNotFoundException {
+        File file = new File(path);
         Scanner reader = new Scanner(file);
 
 
